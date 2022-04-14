@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val stringInTextField = binding.nilaiMataUangEditText.text.toString()
         val nilaiMataUang = stringInTextField.toDoubleOrNull()
         if (nilaiMataUang == null){
-            binding.conversionResult.text = ""
+            displayConversion(0.0)
             return
         }
 
@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         val conversion = valueForeignCurrency * nilaiMataUang
 
+        displayConversion(conversion)
+    }
+
+    private fun displayConversion(conversion : Double){
         val indonesianLocale = Locale("in", "ID")
         val formattedConversion = NumberFormat.getCurrencyInstance(indonesianLocale).format(conversion)
         binding.conversionResult.text = getString(R.string.conversion_amount, formattedConversion)
@@ -52,7 +56,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            // Hide the keyboard
             val inputMethodManager =
                 getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
