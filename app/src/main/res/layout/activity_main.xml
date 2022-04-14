@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/icon_conversion_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/conversion_question"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/conversion_question"
+            app:srcCompat="@drawable/ic_mata_uang" />
+
+        <TextView
+            android:id="@+id/conversion_question"
+            style="@style/Widget.ConversionApp.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/pilih_mata_uang"
+            app:layout_constraintStart_toEndOf="@id/icon_conversion_question"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/conversion_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/option_euro"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/conversion_question"
+            app:layout_constraintTop_toBottomOf="@id/conversion_question">
+
+            <RadioButton
+                android:id="@+id/option_euro"
+                style="@style/Widget.ConversionApp.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/op_euro" />
+
+            <RadioButton
+                android:id="@+id/option_dollar"
+                style="@style/Widget.ConversionApp.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/op_dollar" />
+
+            <RadioButton
+                android:id="@+id/option_yen"
+                style="@style/Widget.ConversionApp.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/op_yen" />
+
+            <RadioButton
+                android:id="@+id/option_riyal"
+                style="@style/Widget.ConversionApp.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/op_riyal" />
+
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/icon_nilai_mata_uang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/nilai_mata_uang"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/nilai_mata_uang"
+            app:srcCompat="@drawable/ic_nilai_mata_uang" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nilai_mata_uang"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/nilai_mata_uang"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/conversion_options"
+            app:layout_constraintStart_toEndOf="@+id/icon_nilai_mata_uang"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nilai_mata_uang_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/conversion_button"
+            android:backgroundTint="@color/orange_500"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/konversi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/nilai_mata_uang"
+            app:layout_constraintTop_toBottomOf="@id/nilai_mata_uang" />
+
+        <TextView
+            android:id="@+id/conversion_result"
+            style="@style/Widget.ConversionApp.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/conversion_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
